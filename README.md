@@ -2,9 +2,15 @@
 
 **Forge strategies through human-AI collaboration.**
 
+<p align="center">
+  <img src="docs/images/00_hero.png" alt="AutoForge — You bring the edge, we test it, you get the answer" width="100%">
+</p>
+
 AutoForge is an open-source workbench where you describe your edge in plain English, and an AI partner helps you code it, stress-test it, optimize it, and tell you if it's real.
 
 Inspired by [Karpathy's AutoResearch](https://github.com/karpathy/autoresearch), but for a fundamentally different domain. AutoResearch runs quick ML experiments (5-minute wallclock, gradient descent, loss curves). AutoForge is about **rule-based systems** — deterministic strategies with discrete parameters, optimized through exhaustive search across hundreds or thousands of combinations.
+
+> *If you've got the edge, we've got the power to make you successful.*
 
 ## Philosophy
 
@@ -15,6 +21,66 @@ Inspired by [Karpathy's AutoResearch](https://github.com/karpathy/autoresearch),
 - **Prove it or kill it.** Every idea gets stress-tested across historical data. If the edge isn't there, AutoForge will show you. Better to find out in backtest than with real money.
 
 - **The method, not the alpha.** AutoForge ships the forge — you bring your own metal. No proprietary strategies included. Only toy examples (SMA crossover, basic RSI) to demonstrate the workflow.
+
+## See It in Action
+
+AutoForge was used to develop a real futures strategy through **200+ experiments across 8 phases**. Here's what that looks like:
+
+### From intuition to validated strategy
+
+<p align="center">
+  <img src="docs/images/06_the_journey.png" alt="The AutoForge Journey" width="100%">
+</p>
+
+### The quality funnel — fewer trades, sharper edge
+
+Every phase improved signal quality. We went from 60 trades/day with a paper-thin edge to 4.5 trades/day with a Sharpe above 4:
+
+<p align="center">
+  <img src="docs/images/01_quality_funnel.png" alt="Quality Funnel" width="100%">
+</p>
+
+### 200+ experiments, 1,400+ parameter combinations
+
+AutoForge doesn't guess — it exhaustively searches:
+
+<p align="center">
+  <img src="docs/images/02_experiment_scale.png" alt="Experiment Scale" width="100%">
+</p>
+
+### Dead ends caught in hours, not weeks
+
+Every failed experiment is a shortcut. These would have consumed weeks of manual research:
+
+<p align="center">
+  <img src="docs/images/03_dead_ends.png" alt="Dead Ends" width="100%">
+</p>
+
+### AI discovers the winning filter combination
+
+8 filters tested individually, then systematically combined. The best pair emerged from data, not guesswork:
+
+<p align="center">
+  <img src="docs/images/05_filter_discovery.png" alt="Filter Discovery" width="100%">
+</p>
+
+### One strategy, three risk profiles — you choose
+
+The final output isn't a single answer. It's a dial between risk and reward:
+
+<p align="center">
+  <img src="docs/images/04_three_profiles.png" alt="Three Risk Profiles" width="100%">
+</p>
+
+### Validated across 2.5 years of market data
+
+<p align="center">
+  <img src="docs/images/07_monthly_consistency.png" alt="Monthly Consistency" width="100%">
+</p>
+
+**Read the full case study: [docs/case-study.md](docs/case-study.md)**
+
+---
 
 ## The Pipeline
 
@@ -135,7 +201,8 @@ autoforge/
   evaluate.py    # Metrics: Sharpe, win rate, profit factor, drawdown
   optimize.py    # Parameter sweep — local multiprocessing or hive-mcp
 program.md       # AI agent instructions — the collaboration methodology
-examples/        # Toy strategies (SMA crossover, RSI) for demonstration
+examples/        # Toy strategies (SMA crossover, RSI, S5 reversion)
+docs/            # Case study with full walkthrough
 ```
 
 ### Strategy Base Class

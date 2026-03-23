@@ -4,6 +4,10 @@
 
 This is a real case study from AutoForge's development. The strategy details (indicators, rules, parameters) are intentionally omitted — this is about the **process**, not the alpha.
 
+<p align="center">
+  <img src="images/06_the_journey.png" alt="The AutoForge Journey" width="100%">
+</p>
+
 ---
 
 ## The Starting Point
@@ -75,6 +79,10 @@ The AI systematically tested all promising pairs:
 
 **We went from 60 trades/day to 4.5 trades/day** — and from PF 1.09 to PF 2.35. The filters didn't just reduce quantity, they radically improved quality.
 
+<p align="center">
+  <img src="images/05_filter_discovery.png" alt="Filter Discovery" width="100%">
+</p>
+
 ---
 
 ## Phase 3: Parameter Grid — "Where are the sweet spots?"
@@ -136,6 +144,10 @@ With entries optimized, we stress-tested the exit. The trader's instinct was to 
 **The counterintuitive finding:** Every "sophisticated" exit was worse than the simple one. The AI's explanation: *"This is a mean-reversion strategy. The target IS the mean. Trailing stops cut the move short — they're designed for trend-following, not reversion. The simple exit is correct because it matches the strategy's thesis."*
 
 The trader initially resisted this. Adding a trailing stop *felt* safer. But the data was unambiguous. **Sometimes the best optimization is deciding not to optimize.**
+
+<p align="center">
+  <img src="images/03_dead_ends.png" alt="Dead Ends Caught Early" width="100%">
+</p>
 
 ---
 
@@ -206,6 +218,10 @@ Over 21 months of trading:
 
 The short-side dominance from the optimization period **did not hold** over 2 years. Both directions were profitable. The AI flagged this: *"The short dominance in optimization was likely a regime effect, not a structural edge. Over 2 years, both sides contribute. Trade both."*
 
+<p align="center">
+  <img src="images/07_monthly_consistency.png" alt="Monthly Consistency" width="100%">
+</p>
+
 ---
 
 ## Phase 7: Drawdown Control — "How do we manage risk?"
@@ -235,6 +251,10 @@ The winning combination: stricter entry threshold + cooldown after stops + daily
 
 Three configurations, three risk profiles. The trader now has a dial: more P&L with more risk, or less P&L with a smoother ride. **That's not a parameter optimization — that's a business decision.**
 
+<p align="center">
+  <img src="images/04_three_profiles.png" alt="Three Risk Profiles" width="100%">
+</p>
+
 ---
 
 ## The Numbers: What AutoForge Made Possible
@@ -247,6 +267,14 @@ Three configurations, three risk profiles. The trader now has a dial: more P&L w
 | Parameter combinations swept | 0 | 1,400+ |
 | Exit strategies tested | 0 | 9 |
 | Total experiments | 0 | **200+** |
+
+<p align="center">
+  <img src="images/02_experiment_scale.png" alt="Experiment Scale" width="100%">
+</p>
+
+<p align="center">
+  <img src="images/01_quality_funnel.png" alt="Quality Funnel" width="100%">
+</p>
 | Validation period | None | 2.5 years (430 trading days) |
 | Time to complete | Would take months manually | Days |
 
