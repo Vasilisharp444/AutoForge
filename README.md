@@ -178,7 +178,7 @@ best = optimize.sweep(
 
 ### 5. Scale with hive-mcp
 
-For large parameter sweeps (thousands of combinations), AutoForge integrates with [hive-mcp](https://github.com/saikodi/hive-mcp) to distribute work across idle machines on your network.
+For large parameter sweeps (thousands of combinations), AutoForge integrates with [hive-mcp](https://github.com/saikodi/hive-compute-mcp) to distribute work across idle machines on your network.
 
 ```python
 results = optimize.sweep(
@@ -233,7 +233,7 @@ Extensible — add your own in `prepare.py`.
 
 ## Origin Story
 
-This project grew out of real trading research. The author spent years developing futures strategies, hit the limits of manual parameter tuning, and built AutoForge to systematize the process. When single-machine sweeps weren't enough, [hive-mcp](https://github.com/saikodi/hive-mcp) was born to distribute compute across idle LAN machines.
+This project grew out of real trading research. The author spent years developing futures strategies, hit the limits of manual parameter tuning, and built AutoForge to systematize the process. When single-machine sweeps weren't enough, [hive-mcp](https://github.com/saikodi/hive-compute-mcp) was born to distribute compute across idle LAN machines.
 
 Both are now open-source: AutoForge for the methodology, hive-mcp for the compute.
 
