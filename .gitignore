@@ -9,6 +9,7 @@ build/
 venv/
 env/
 data/*.csv
+!data/sample_NQ.csv
 data/*.parquet
 *.log
 .DS_Store
