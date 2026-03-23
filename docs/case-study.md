@@ -12,13 +12,22 @@ This is a real case study from AutoForge's development. The strategy details (in
 
 ## The Starting Point
 
-The trader had a simple observation:
+The trader had 10+ years of watching NQ futures price action. He'd seen patterns — behaviors that repeated across market conditions, setups that "felt right" before the move happened. But none of it was formalized. No code, no parameters, no backtests. Just hard-won intuition and a collection of observations scattered across notes and memory.
 
-> *"When price gets stretched too far from its average, it tends to snap back."*
+The first step wasn't coding. It was a **multi-hour interview** between the trader and the AI.
 
-That's it. No code, no parameters, no backtests. Just a market intuition built from years of watching price action on NQ futures (21-range bars, $20/point).
+The AI asked questions. Lots of them:
+- *"What exactly do you see before the move starts?"*
+- *"Does it work the same way for longs and shorts?"*
+- *"What market conditions make it fail?"*
+- *"How do you know when the setup is 'good enough' to take?"*
+- *"What are you watching that tells you to get out?"*
 
-The goal: turn that intuition into a rule-based strategy with quantifiable edge.
+The trader answered, revised, clarified. The AI pushed back on vague language, asked for specifics, and proposed edge cases the trader hadn't considered. By the end of the session, what started as *"I've noticed price tends to do X when Y happens"* had become a precise, testable specification — entry conditions, exit rules, filter criteria, and a list of parameters to explore.
+
+**This interview phase is the foundation.** Without it, you're optimizing noise. With it, you're optimizing a real idea that comes from real market experience.
+
+The goal: turn that formalized intuition into a rule-based strategy with quantifiable edge.
 
 ---
 
@@ -26,7 +35,7 @@ The goal: turn that intuition into a rule-based strategy with quantifiable edge.
 
 **Experiments: 10 | Goal: test the raw concept**
 
-The first question wasn't about parameters — it was about **how to detect the snapback**. The AI coded five different signal detection methods and tested each one with minimal filters — just the bare concept.
+With the specification locked in, the first coding question was: **how to detect the setup**. The AI coded five different signal detection methods and tested each one with minimal filters — just the bare concept.
 
 | Signal | Trades/Day | Win Rate | Profit Factor | Verdict |
 |--------|-----------|----------|---------------|---------|
