@@ -51,37 +51,13 @@ Hi, have a look at program.md. I have a strategy idea I'd like to explore.
 
 The AI will interview you, code the strategy, backtest it, and optimize the parameters. `program.md` is the "skill" that drives the collaboration.
 
-## What it looks like
-
-A parameter sweep across 160 filter combinations:
-
-![terminal](docs/images/08_terminal.png)
-
 ## Real results
 
-AutoForge was used to develop real futures strategies. Two case studies document the process — every phase, every decision, every dead end — without revealing the proprietary strategy details.
+AutoForge was used to develop real futures strategies. Two case studies document the full process — every phase, every decision, every dead end — without revealing the proprietary strategy details.
 
-### Case Study #1: Forging a strategy from scratch
-*200+ experiments across 8 phases. From a vague intuition to a validated strategy with three risk profiles.*
+- **[Case Study #1: Forging a strategy from scratch →](docs/case-study.md)** — 200+ experiments across 8 phases. From a vague intuition to a validated strategy with three risk profiles. 60 trades/day became 4.5 with a Sharpe above 4.
 
-![quality funnel](docs/images/01_quality_funnel.png)
-
-60 trades/day with a paper-thin edge became 4.5 trades/day with a Sharpe above 4. Trailing stops were tested and killed. A filter that produced zero trades was caught in hours. Signal methods with no edge were dropped. The final output: three risk configurations — the trader picks the tradeoff.
-
-![three profiles](docs/images/04_three_profiles.png)
-
-**[Read Case Study #1 →](docs/case-study.md)**
-
-### Case Study #2: Proving an edge is real
-*3,500+ parameter combinations. Ablation tests, random baselines, stop sensitivity sweeps.*
-
-![robustness](docs/images/mr_01_robustness.png)
-
-97% of parameter combinations were profitable. Every stop level tested was profitable. Random entries with the same mechanics lost catastrophically (-$152K to -$2.1M). The signals are real. Combined with an uncorrelated momentum strategy, drawdown dropped 32%.
-
-![random baseline](docs/images/mr_02_random_baseline.png)
-
-**[Read Case Study #2 →](docs/case-study-mr.md)**
+- **[Case Study #2: Proving an edge is real →](docs/case-study-mr.md)** — 3,500+ parameter combinations. Ablation tests, random baselines, stop sensitivity sweeps. 97% of combinations profitable. Random entries lost catastrophically. The signals are real.
 
 ## Design choices
 
