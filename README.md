@@ -69,7 +69,9 @@ The final output: **one strategy, three risk profiles** — the trader chooses t
 
 Validated across **2.5 years of market data** (430 trading days, 1,000+ trades). 86% profitable months. Edge held across market regimes.
 
-**[Read the full case study →](docs/case-study.md)** — every phase, every decision, every dead end.
+**[Read Case Study #1 →](docs/case-study.md)** — 200+ experiments forging a strategy from scratch.
+
+**[Read Case Study #2 →](docs/case-study-mr.md)** — 3,500+ combinations proving a mean reversion edge is real, not an artifact.
 
 ---
 
