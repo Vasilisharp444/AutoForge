@@ -29,14 +29,14 @@ git clone https://github.com/saikodi/AutoForge.git
 cd AutoForge
 pip install -e .
 
-# 2. Bring your data (OHLCV CSV: DateTime, Open, High, Low, Close, Volume)
-#    Place CSV files in data/
+# 2. Run an example backtest (sample data included)
+python examples/sma_crossover.py --data data/sample_NQ.csv
 
-# 3. Run an example backtest
-python examples/sma_crossover.py --data data/your_data.csv
+# 3. Run a parameter sweep (800 combinations)
+python examples/sma_crossover.py --data data/sample_NQ.csv --optimize --workers 6
 
-# 4. Run a parameter sweep (800 combinations)
-python examples/sma_crossover.py --data data/your_data.csv --optimize --workers 6
+# 4. Bring your own data (OHLCV CSV: DateTime, Open, High, Low, Close, Volume)
+#    Place CSV files in data/ and point examples at them
 ```
 
 If the above commands work, your setup is ready. Point your AI agent at `program.md` and start describing your strategy.
